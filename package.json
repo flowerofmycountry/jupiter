@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "publish:packages": "pnpm publish:shared && pnpm publish:hooks && pnpm publish:ui",
+    "publish:packages": "pnpm publish:shared && pnpm publish:hoooks && pnpm publish:ui",
     "dev": "concurrently --kill-others \"pnpm serv\" \"pnpm dev:main\" \"pnpm dev:sub\"",
     "dev:main": "pnpm -F main dev",
     "dev:sub": "pnpm -F sub dev",
