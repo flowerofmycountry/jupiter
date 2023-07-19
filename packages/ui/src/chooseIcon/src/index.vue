@@ -31,7 +31,7 @@ export default {
 
 <script setup lang="ts">
 import * as ArcoIcons from '@arco-design/web-vue/es/icon'
-import { camelToKebab } from '@jupiter/shared'
+import { camelToKebab } from 'jupiter-shared'
 
 const props = defineProps<{
   title?: string

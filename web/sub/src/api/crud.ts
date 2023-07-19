@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { PagingQueryParams, PagingQueryResult } from '@jupiter/'
+import { PagingQueryParams, PagingQueryResult } from 'jupiter-hooks'
 
 export interface Crud {
   id: number

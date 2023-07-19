@@ -5,7 +5,7 @@ import {
   getUserInfo,
   LoginData
 } from '@/api/user'
-import { setToken, clearToken, removeRouteListener } from '@jupiter/shared'
+import { setToken, clearToken, removeRouteListener } from 'jupiter-shared'
 import { UserState } from './types'
 import useAppStore from '../app'
 

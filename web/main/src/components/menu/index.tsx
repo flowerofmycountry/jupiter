@@ -1,7 +1,7 @@
 import { defineComponent, ref, h, compile } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { MenuRecord } from './types'
-import { listenerRouteChange } from '@jupiter/shared'
+import { listenerRouteChange } from 'jupiter-shared'
 import useMenuTree from './use-menu-tree'
 import { useActiveSubStore } from '@/store'
 import { extractSubAppName } from '@/utils'

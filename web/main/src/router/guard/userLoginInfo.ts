@@ -2,7 +2,7 @@ import type { Router, LocationQueryRaw } from 'vue-router'
 import NProgress from 'nprogress' // progress bar
 
 import { useUserStore } from '@/store'
-import { isLogin } from '@jupiter/shared'
+import { isLogin } from 'jupiter-shared'
 
 export default function setupUserLoginInfoGuard(router: Router) {
   router.beforeEach(async to => {

@@ -1,6 +1,6 @@
 import type { Router } from 'vue-router'
 import NProgress from 'nprogress'
-import { setRouteEmitter } from '@jupiter/shared'
+import { setRouteEmitter } from 'jupiter-shared'
 import setupUserLoginInfoGuard from './userLoginInfo'
 import setupPermissionGuard from './permission'
 

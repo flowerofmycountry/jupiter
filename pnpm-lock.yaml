@@ -84,15 +84,15 @@ importers:
       '@arco-design/web-vue':
         specifier: ^2.48.0
         version: 2.48.0(vue@3.3.4)
-      '@jupiter/hooks':
-        specifier: workspace:^
-        version: link:../hooks
-      '@jupiter/shared':
-        specifier: workspace:^
-        version: link:../shared
       '@vueuse/core':
         specifier: ^10.2.1
         version: 10.2.1(vue@3.3.4)
+      jupiter-hooks:
+        specifier: workspace:^
+        version: link:../hooks
+      jupiter-shared:
+        specifier: workspace:^
+        version: link:../shared
       vue:
         specifier: ^3.3.4
         version: 3.3.4
@@ -121,18 +121,18 @@ importers:
       '@arco-design/web-vue':
         specifier: ^2.48.0
         version: 2.48.0(vue@3.3.4)
-      '@jupiter/shared':
-        specifier: workspace:^
-        version: link:../../packages/shared
-      '@jupiter/ui':
-        specifier: workspace:^
-        version: link:../../packages/ui
       '@vueuse/core':
         specifier: ^10.2.0
         version: 10.2.1(vue@3.3.4)
       axios:
         specifier: ^1.4.0
         version: 1.4.0
+      jupiter-shared:
+        specifier: workspace:^
+        version: link:../../packages/shared
+      jupiter-ui:
+        specifier: workspace:^
+        version: link:../../packages/ui
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -188,18 +188,18 @@ importers:
       '@arco-design/web-vue':
         specifier: ^2.48.0
         version: 2.48.0(vue@3.3.4)
-      '@jupiter/hooks':
-        specifier: workspace:^
-        version: link:../../packages/hooks
-      '@jupiter/shared':
-        specifier: workspace:^
-        version: link:../../packages/shared
-      '@jupiter/ui':
-        specifier: workspace:^
-        version: link:../../packages/ui
       axios:
         specifier: ^1.4.0
         version: 1.4.0
+      jupiter-hooks:
+        specifier: workspace:^
+        version: link:../../packages/hooks
+      jupiter-shared:
+        specifier: workspace:^
+        version: link:../../packages/shared
+      jupiter-ui:
+        specifier: workspace:^
+        version: link:../../packages/ui
       lodash:
         specifier: ^4.17.21
         version: 4.17.21

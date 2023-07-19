@@ -11,12 +11,12 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.48.0",
     "axios": "^1.4.0",
-    "@jupiter/hooks": "workspace:^",
+    "jupiter-hooks": "workspace:^",
     "lodash": "^4.17.21",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.4",
-    "@jupiter/shared": "workspace:^",
-    "@jupiter/ui": "workspace:^",
+    "jupiter-shared": "workspace:^",
+    "jupiter-ui": "workspace:^",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2"
   },

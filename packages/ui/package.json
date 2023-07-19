@@ -1,5 +1,5 @@
 {
-  "name": "@jupiter/ui",
+  "name": "jupiter-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/flowerofmycountry/jupiter.git",
-    "directory": "packages/ui"
+    "directory": "packages/jupiter-ui"
   },
   "file": [
     "dist"
@@ -27,8 +27,8 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.48.0",
     "@vueuse/core": "^10.2.1",
-    "@jupiter/hooks": "workspace:^",
-    "@jupiter/shared": "workspace:^",
+    "jupiter-hooks": "workspace:^",
+    "jupiter-shared": "workspace:^",
     "vue": "^3.3.4"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { setToken, clearToken } from '@jupiter/shared'
+import { setToken, clearToken } from 'jupiter-shared'
 
 const useUserStore = defineStore('user', {
   state: (): any => ({}),

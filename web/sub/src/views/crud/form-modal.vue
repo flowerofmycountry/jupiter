@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { create, update, get } from '@/api/crud'
-import { useFormModal } from '@jupiter/hooks'
+import { useFormModal } from 'jupiter-hooks'
 
 const props = defineProps<{
   fetchData: () => void
