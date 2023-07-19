@@ -14,7 +14,7 @@ import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import '@arco-design/web-vue/dist/arco.css'
 
-import FlowerUI from 'jupiter-ui'
+import FlowerUI from 'jupiter-uii'
 // import '@flowerofmycountry/ui/dist/style.css'
 
 import '@/api/interceptor'

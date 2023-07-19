@@ -69,6 +69,13 @@ importers:
       vue:
         specifier: ^3.3.4
         version: 3.3.4
+    devDependencies:
+      vite:
+        specifier: ^4.4.4
+        version: 4.4.4
+      vite-plugin-dts:
+        specifier: ^3.3.1
+        version: 3.3.1(typescript@5.1.6)(vite@4.4.4)
 
   packages/shared:
     dependencies:
@@ -78,6 +85,13 @@ importers:
       vue-router:
         specifier: ^4.2.4
         version: 4.2.4(vue@3.3.4)
+    devDependencies:
+      vite:
+        specifier: ^4.4.4
+        version: 4.4.4
+      vite-plugin-dts:
+        specifier: ^3.3.1
+        version: 3.3.1(typescript@5.1.6)(vite@4.4.4)
 
   packages/ui:
     dependencies:
@@ -130,7 +144,7 @@ importers:
       jupiter-shared:
         specifier: workspace:^
         version: link:../../packages/shared
-      jupiter-ui:
+      jupiter-uii:
         specifier: workspace:^
         version: link:../../packages/ui
       lodash:
@@ -197,7 +211,7 @@ importers:
       jupiter-shared:
         specifier: workspace:^
         version: link:../../packages/shared
-      jupiter-ui:
+      jupiter-uii:
         specifier: workspace:^
         version: link:../../packages/ui
       lodash:

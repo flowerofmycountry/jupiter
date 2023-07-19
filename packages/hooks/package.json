@@ -7,8 +7,19 @@
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flowerofmycountry/jupiter.git",
+    "directory": "packages/hooks"
+  },
+  "file": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build --config ./vite.config.lib.ts",
+    "clean": "shx rm -rf dist",
+    "prepack": "pnpm clean && pnpm build",
+    "postpublish": "pnpm clean"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +28,9 @@
     "@arco-design/web-vue": "^2.48.0",
     "axios": "^1.4.0",
     "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "vite": "^4.4.4",
+    "vite-plugin-dts": "^3.3.1"
   }
 }
