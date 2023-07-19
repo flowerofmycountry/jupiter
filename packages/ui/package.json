@@ -1,0 +1,42 @@
+{
+  "name": "@jupiter/ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs/core.git",
+    "directory": "packages/ui"
+  },
+  "file": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build --config ./vite.config.lib.ts",
+    "clean": "shx rm -rf dist",
+    "prepack": "pnpm clean && pnpm build",
+    "postpublish": "pnpm clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@arco-design/web-vue": "^2.48.0",
+    "@vueuse/core": "^10.2.1",
+    "@jupiter/hooks": "workspace:^",
+    "@jupiter/shared": "workspace:^",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/runtime-core": "^3.3.4",
+    "shx": "^0.3.4",
+    "vite": "^4.4.4",
+    "vite-plugin-dts": "^3.3.1"
+  }
+}

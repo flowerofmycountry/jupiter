@@ -1,0 +1,21 @@
+{
+  "name": "@jupiter/hooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@arco-design/web-vue": "^2.48.0",
+    "axios": "^1.4.0",
+    "vue": "^3.3.4"
+  }
+}

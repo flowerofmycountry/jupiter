@@ -1,0 +1,96 @@
+{
+  "menus": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "name": "user",
+      "path": "/user",
+      "locale": "用户管理",
+      "order": 1,
+      "icon": "icon-user",
+      "type": "page"
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "name": "role",
+      "path": "/role",
+      "locale": "角色管理",
+      "order": 2,
+      "icon": "icon-qq",
+      "type": "page"
+    },
+    {
+      "id": 3,
+      "projectId": 1,
+      "name": "menu",
+      "path": "/menu",
+      "locale": "菜单管理",
+      "order": 3,
+      "icon": "icon-menu",
+      "type": "page"
+    },
+    {
+      "id": 4,
+      "projectId": 1,
+      "name": "interface",
+      "path": "/interface",
+      "locale": "接口管理",
+      "order": 4,
+      "icon": "icon-italic",
+      "type": "page"
+    },
+    {
+      "id": 5,
+      "projectId": 1,
+      "name": "multi-menu",
+      "path": "/multi-menu",
+      "locale": "多层菜单",
+      "order": 4,
+      "icon": "icon-list",
+      "type": "menu"
+    },
+    {
+      "id": 6,
+      "pid": 5,
+      "projectId": 1,
+      "name": "menu-page1",
+      "path": "/multi-menu/menu-page1",
+      "locale": "下级页面1",
+      "order": 4,
+      "icon": "icon-list",
+      "type": "page"
+    },
+    {
+      "id": 7,
+      "pid": 5,
+      "projectId": 1,
+      "name": "menu-page2",
+      "path": "/multi-menu/menu-page2",
+      "locale": "下级页面2",
+      "order": 4,
+      "icon": "icon-list",
+      "type": "page"
+    },
+    {
+      "id": 8,
+      "projectId": 2,
+      "name": "crud",
+      "path": "/crud",
+      "locale": "CRUD示例",
+      "order": 1,
+      "icon": "icon-user",
+      "type": "page"
+    },
+    {
+      "id": 9,
+      "projectId": 2,
+      "name": "choose-icon",
+      "path": "/choose-icon",
+      "locale": "图标选择器",
+      "order": 2,
+      "icon": "icon-user",
+      "type": "page"
+    }
+  ]
+}

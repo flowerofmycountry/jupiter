@@ -1,0 +1,17 @@
+{
+  "name": "@jupiter/cli",
+  "version": "1.0.0",
+  "description": "",
+  "preferGlobal": true,
+  "bin": {
+    "jupiter-cli": "./bin/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^3.0.0",
+    "commander": "^11.0.0",
+    "typescript": "^5.1.6"
+  }
+}
