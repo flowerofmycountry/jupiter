@@ -34,7 +34,7 @@
 import FormModal from './form-modal.vue'
 import type { Crud } from '@/api/crud'
 import { list, del } from '@/api/crud'
-import { useTable, useSearchForm } from 'jupiter-hooks'
+import { useTable, useSearchForm } from 'jupiter-hoooks'
 import columns from './columns'
 import fields from './searchFields'
 import { ref } from 'vue'

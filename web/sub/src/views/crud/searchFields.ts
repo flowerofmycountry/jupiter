@@ -1,4 +1,4 @@
-import type { SearchField } from 'jupiter-hooks'
+import type { SearchField } from 'jupiter-hoooks'
 
 export default [
   {

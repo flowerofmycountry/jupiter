@@ -27,7 +27,7 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.48.0",
     "@vueuse/core": "^10.2.1",
-    "jupiter-hooks": "workspace:^",
+    "jupiter-hoooks": "workspace:^",
     "jupiter-shared": "workspace:^",
     "vue": "^3.3.4"
   },

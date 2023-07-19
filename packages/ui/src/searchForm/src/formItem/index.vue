@@ -132,7 +132,7 @@
 </template>
 
 <script lang="ts" setup>
-import { SearchField } from 'jupiter-hooks'
+import { SearchField } from 'jupiter-hoooks'
 
 const props = defineProps<{
   field: SearchField

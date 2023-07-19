@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "publish:packages": "pnpm publish:shared && pnpm publish:hooks && pnpm publish:ui",
     "dev": "concurrently --kill-others \"pnpm serv\" \"pnpm dev:main\" \"pnpm dev:sub\"",
     "dev:main": "pnpm -F main dev",
     "dev:sub": "pnpm -F sub dev",
-    "serv": "pnpm -F mock-server dev"
+    "serv": "pnpm -F mock-server dev",
+    "publish:shared": "pnpm -F jupiter-shared publish",
+    "publish:hooks": "pnpm -F jupiter-hooks publish",
+    "publish:ui": "pnpm -F jupiter-uii publish"
   },
   "keywords": [],
   "author": "",

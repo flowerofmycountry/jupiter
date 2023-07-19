@@ -52,7 +52,7 @@ export default {
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import FormItem from './formItem/index.vue'
-import type { SearchField } from 'jupiter-hooks'
+import type { SearchField } from 'jupiter-hoooks'
 
 const props = defineProps<{
   fields: SearchField[]

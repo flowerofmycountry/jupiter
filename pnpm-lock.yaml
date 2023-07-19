@@ -107,7 +107,7 @@ importers:
       '@vueuse/core':
         specifier: ^10.2.1
         version: 10.2.1(vue@3.3.4)
-      jupiter-hooks:
+      jupiter-hoooks:
         specifier: workspace:^
         version: link:../hooks
       jupiter-shared:
@@ -211,7 +211,7 @@ importers:
       axios:
         specifier: ^1.4.0
         version: 1.4.0
-      jupiter-hooks:
+      jupiter-hoooks:
         specifier: workspace:^
         version: link:../../packages/hooks
       jupiter-shared:
