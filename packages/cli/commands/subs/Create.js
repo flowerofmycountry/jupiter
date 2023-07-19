@@ -1,5 +1,9 @@
 const { Command } = require('../base/CommandBase')
 const { input } = require('@inquirer/prompts')
+const { execSync } = require('child_process')
+const { replaceTextInFile } = require('../../utils/fileHelper')
+const { join } = require('path')
+const { writeFileSync, rmSync } = require('fs')
 
 class Create extends Command {
   constructor() {
@@ -7,17 +11,20 @@ class Create extends Command {
   }
 
   async action(str, options) {
-    let { name: projectName } = options
+    let projectName = str
 
     if (!projectName) {
       projectName = await input({ message: '请输入项目名称：' })
     }
 
     const description = await input({ message: '请输入项目描述：' })
-    const author = await input({ message: '请输入作者：' })
-    const version = await input({ message: '请输入版本号：' })
+    const author = await input({
+      message: '请输入作者：',
+      default: 'flowerofmycountry'
+    })
+    const version = await input({ message: '请输入版本号：', default: '1.0.0' })
 
-    const gitRepoUrl = ''
+    const gitRepoUrl = 'https://github.com/flowerofmycountry/europa.git'
 
     // clone 项目
     execSync(`git clone ${gitRepoUrl} ${projectName}`)
@@ -25,7 +32,7 @@ class Create extends Command {
     // 当前命令执行路径
     const basePath = process.cwd()
 
-    const packageJsonPath = path.join(basePath, projectName, 'package.json')
+    const packageJsonPath = join(basePath, projectName, 'package.json')
     const packageJson = require(packageJsonPath)
 
     packageJson.name = projectName
@@ -34,10 +41,17 @@ class Create extends Command {
     packageJson.version = version
 
     // 删除 .get
-    rmSync(path.join(basePath, projectName, '.git'), { recursive: true })
+    rmSync(join(basePath, projectName, '.git'), { recursive: true })
 
     // 重新写入 package.json
     writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2))
+
+    // 替换子应用标识
+    replaceTextInFile(
+      join(basePath, projectName, 'src/router/index.ts'),
+      'europa',
+      projectName
+    )
 
     // 安装依赖
     execSync(`cd ${projectName} && pnpm install`)
