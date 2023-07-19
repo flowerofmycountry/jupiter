@@ -30,6 +30,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "shx": "^0.3.4",
     "vite": "^4.4.4",
     "vite-plugin-dts": "^3.3.1"
   }
