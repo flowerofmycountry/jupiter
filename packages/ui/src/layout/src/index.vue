@@ -38,8 +38,9 @@ defineProps({
   }
 
   .arco-layout-content {
-    padding: 10px;
+    padding: 0 20px;
     height: calc(100vh - 60px); /** 减号两边必有空格 */
+    background-color: var(--color-fill-2);
   }
 }
 </style>

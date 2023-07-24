@@ -20,21 +20,24 @@ export default defineConfig({
       entry: resolve(__dirname, 'index.ts')
     },
     rollupOptions: {
-      external: [
-        'vue',
-        'vue-router',
-        '@arco-design/web-vue/es/icon',
-        /node_modules/
-      ],
       output: [
         {
           //打包格式
           format: 'es',
           //打包后文件名
           entryFileNames: '[name].js',
+          // preserveModules: true,
+          // preserveModulesRoot: 'src',
           //配置打包根目录
           dir: 'dist'
         }
+      ],
+      external: [
+        'vue',
+        'vue-router',
+        '@arco-design/web-vue',
+        '@arco-design/web-vue/es/icon',
+        /node_modules/
       ]
     }
   }

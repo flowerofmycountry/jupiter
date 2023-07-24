@@ -4,7 +4,7 @@ import { COMPONENT_PREFIX } from '../config'
 
 const SearchForm = Object.assign(_SearchForm, {
   install(app: App) {
-    app.component(COMPONENT_PREFIX + _SearchForm.name, _SearchForm)
+    app.component(COMPONENT_PREFIX + 'SearchForm', _SearchForm)
   }
 })
 

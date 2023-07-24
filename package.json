@@ -11,7 +11,8 @@
     "serv": "pnpm -F mock-server dev",
     "publish:shared": "pnpm -F jupiter-shared publish",
     "publish:hooks": "pnpm -F jupiter-hoooks publish",
-    "publish:ui": "pnpm -F jupiter-uii publish"
+    "publish:ui": "pnpm -F jupiter-uii publish",
+    "build:ui": "pnpm -F jupiter-uii build"
   },
   "keywords": [],
   "author": "",

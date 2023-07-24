@@ -39,7 +39,6 @@ export interface PagingQueryResult<T> {
 
 export interface SearchField {
   key: string
-  name: string
   type: string
   label?: string
   placeholder?: string

@@ -3,6 +3,10 @@ import Layout from '@/layout/index.vue'
 import { NOT_FOUND_ROUTE } from './routes/base'
 import { appRoutes } from './routes'
 import createRouteGuard from './guard'
+import NProgress from 'nprogress' // progress bar
+import 'nprogress/nprogress.css'
+
+NProgress.configure({ showSpinner: false })
 
 const router = createRouter({
   history: createWebHistory('/main-app'),

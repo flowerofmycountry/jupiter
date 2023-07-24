@@ -1,5 +1,5 @@
 <template>
-  <f-layout :name="'木星'">
+  <f-layout name="JUPITER">
     <router-view></router-view>
     <template v-slot:menu>
       <router-menu></router-menu>

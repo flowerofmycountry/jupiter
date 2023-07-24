@@ -137,7 +137,6 @@ import { SearchField } from 'jupiter-hoooks'
 const props = defineProps<{
   field: SearchField
   form: Record<string, any>
-  rules?: Array<Record<string, any>>
   label?: string
 }>()
 
@@ -149,11 +148,10 @@ const handleRemoteSearch = (key: string) => {
 
 const autoFixRules = (field: any) => {
   const fieldRules = field.rules || []
-  const propsRules = props.rules || []
   const requiredRules = field.props?.required
     ? [{ required: true, message: `请输入${field.label}` }]
     : []
-  return [...fieldRules, ...propsRules, ...requiredRules]
+  return [...fieldRules, ...requiredRules]
 }
 
 const handleRangeSelect = (valueString: string, value: Date[]) => {

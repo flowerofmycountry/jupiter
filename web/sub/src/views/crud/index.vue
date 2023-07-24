@@ -1,8 +1,6 @@
 <template>
   <div class="sub-page-container">
-    <f-action-bar>
-      <template #left>CRUD</template>
-    </f-action-bar>
+    <f-action-bar :items="['CRUD']"></f-action-bar>
     <a-card class="general-card">
       <f-search-form :fields="fields" :form="searchForm"></f-search-form>
       <a-divider></a-divider>
