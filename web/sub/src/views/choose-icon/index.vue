@@ -1,7 +1,7 @@
 <template>
   <div class="sub-page-container">
-    <f-action-bar :items="['CRUD']"></f-action-bar>
-    <a-card>
+    <page-header></page-header>
+    <a-card class="general-card">
       <f-choose-icon title="选择图标" v-model:visible="visible"></f-choose-icon>
     </a-card>
   </div>
@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import PageHeader from '@/components/page-header/index.vue'
 const visible = ref(false)
 </script>
 

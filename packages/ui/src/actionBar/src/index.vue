@@ -30,7 +30,7 @@ defineProps({
 
 <style lang="less">
 .container-breadcrumb {
-  margin: 16px 0;
+  margin-bottom: 16px;
   :deep(.arco-breadcrumb-item) {
     color: rgb(var(--gray-6));
     &:last-child {

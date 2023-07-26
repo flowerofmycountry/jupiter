@@ -3,7 +3,7 @@
     <div class="left-side">
       <a-space>
         <div class="icon">
-          <img alt="logo" src="./jupiter.png" height="50" width="50" />
+          <img alt="logo" :src="logo" height="50" width="50" />
         </div>
         <a-typography-title
           :style="{ margin: 0, fontSize: '18px' }"
@@ -164,7 +164,8 @@ import {
 import { ref } from 'vue'
 
 defineProps({
-  name: String
+  name: String,
+  logo: String
 })
 
 // #region 黑暗模式切换

@@ -24,7 +24,8 @@ export default function <T = any>(
 
   const handleSearch = () => {
     fetchData({
-      current: 1
+      current: 1,
+      ...searchForm.value
     })
   }
 

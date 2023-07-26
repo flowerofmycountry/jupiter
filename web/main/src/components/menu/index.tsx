@@ -3,13 +3,13 @@ import { useRoute, useRouter } from 'vue-router'
 import { MenuRecord } from './types'
 import { listenerRouteChange } from 'jupiter-shared'
 import useMenuTree from './use-menu-tree'
-import { useActiveSubStore } from '@/store'
-import { extractSubAppName } from '@/utils'
+import { useActiveSubStore, useAppStore } from '@/store'
 
 export default defineComponent({
   name: 'RouterMenu',
   setup() {
     const activeSubStore = useActiveSubStore()
+    const appStore = useAppStore()
 
     const router = useRouter()
     const route = useRoute()
@@ -46,7 +46,12 @@ export default defineComponent({
       //   const name = newRoute.name === 'sub-app' ? menuTree.value.find(el => el.path)
       let name = newRoute.name as string
       if (newRoute.name === 'sub-app') {
-        const menu = menuTree.value.find(el => newRoute.path.includes(el.path!))
+        const menu = appStore.appAsyncMenus.find(el =>
+          newRoute.path.endsWith(el.path!)
+        )
+        // const menu = menuTree.value.find(el => newRoute.path.endsWith(el.path!))
+
+        // menuTree 第一个永远是home 默认选中第二个
         name = menu?.name ?? menuTree.value[1].name
       }
 

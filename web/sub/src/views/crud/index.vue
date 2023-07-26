@@ -1,8 +1,13 @@
 <template>
   <div class="sub-page-container">
-    <f-action-bar :items="['CRUD']"></f-action-bar>
+    <page-header />
     <a-card class="general-card">
-      <f-search-form :fields="fields" :form="searchForm"></f-search-form>
+      <f-search-form
+        :fields="fields"
+        :form="searchForm"
+        @search="handleSearch"
+        @reset="handleReset"
+      ></f-search-form>
       <a-divider></a-divider>
       <f-table-feature-bar @add="add"></f-table-feature-bar>
       <a-table
@@ -20,6 +25,7 @@
             <a-popconfirm content="是否确认删除?" @ok="remove(record)">
               <a-button type="text">删除</a-button>
             </a-popconfirm>
+            <a-button type="text" @click="alertMsg">alert</a-button>
           </a-space>
         </template>
       </a-table>
@@ -29,7 +35,9 @@
 </template>
 
 <script setup lang="ts">
+import { Message } from '@arco-design/web-vue'
 import FormModal from './form-modal.vue'
+import PageHeader from '@/components/page-header/index.vue'
 import type { Crud } from '@/api/crud'
 import { list, del } from '@/api/crud'
 import { useTable, useSearchForm } from 'jupiter-hoooks'
@@ -48,7 +56,10 @@ const {
   fetchData
 } = useTable<Crud>(list)
 
-const { searchForm } = useSearchForm(fields, fetchData)
+const { searchForm, handleSearch, handleReset } = useSearchForm(
+  fields,
+  fetchData
+)
 
 const add = () => {
   modalRef.value?.add()
@@ -67,9 +78,10 @@ const remove = (record: Crud) => {
     fetchData()
   })
 }
+
+const alertMsg = () => {
+  Message.info('无界微前端中，页面切换会让整个应用重新卸载挂载')
+}
 </script>
 
-<style scoped lang="less">
-.sub-page-container {
-}
-</style>
+<style scoped lang="less"></style>

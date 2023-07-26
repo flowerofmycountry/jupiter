@@ -24,4 +24,5 @@ interface Window {
     props?: { [key: string]: any }
     location?: Object
   }
+  Message: any
 }

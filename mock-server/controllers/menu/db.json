@@ -79,7 +79,7 @@
       "path": "/crud",
       "locale": "CRUD示例",
       "order": 1,
-      "icon": "icon-user",
+      "icon": "icon-interaction",
       "type": "page"
     },
     {
@@ -89,7 +89,61 @@
       "path": "/choose-icon",
       "locale": "图标选择器",
       "order": 2,
-      "icon": "icon-user",
+      "icon": "icon-font-colors",
+      "type": "page"
+    },
+    {
+      "id": 10,
+      "projectId": 2,
+      "name": "arco-test",
+      "path": "/arco-test",
+      "locale": "arco&无界微前端",
+      "order": 3,
+      "icon": "icon-ordered-list",
+      "type": "menu"
+    },
+    {
+      "id": 11,
+      "pid": 10,
+      "projectId": 2,
+      "name": "popup",
+      "path": "/arco-test/popup",
+      "locale": "气泡类",
+      "order": 3,
+      "icon": "icon-wechat",
+      "type": "page"
+    },
+    {
+      "id": 12,
+      "pid": 10,
+      "projectId": 2,
+      "name": "message",
+      "path": "/arco-test/message",
+      "locale": "通知类",
+      "order": 3,
+      "icon": "icon-thunderbolt",
+      "type": "page"
+    },
+    {
+      "id": 13,
+      "pid": 10,
+      "projectId": 2,
+      "name": "form-item",
+      "path": "/arco-test/form-item",
+      "locale": "表单类",
+      "order": 3,
+      "icon": "icon-nav",
+      "type": "page"
+    },
+    {
+      "id": 14,
+      "pid": 10,
+      "projectId": 2,
+      "name": "modal",
+      "path": "/arco-test/modal",
+      "locale": "弹窗类",
+      "order": 3,
+      "icon": "icon-desktop",
       "type": "page"
     }
   ]

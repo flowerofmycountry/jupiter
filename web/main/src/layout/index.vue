@@ -1,5 +1,5 @@
 <template>
-  <f-layout name="JUPITER">
+  <f-layout name="JUPITER" :logo="jupiterUrl">
     <router-view></router-view>
     <template v-slot:menu>
       <router-menu></router-menu>
@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 import RouterMenu from '@/components/menu'
+import jupiterUrl from '@/assets/jupiter.png'
 // import { ref } from 'vue'
 
 // const isLocal = ref(true)
