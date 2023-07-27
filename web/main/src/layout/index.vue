@@ -1,14 +1,18 @@
 <template>
-  <f-layout name="JUPITER" :logo="jupiterUrl">
+  <f-layout>
     <router-view></router-view>
     <template v-slot:menu>
       <router-menu></router-menu>
+    </template>
+    <template v-slot:header>
+      <main-header name="JUPITER" :logo="jupiterUrl" />
     </template>
   </f-layout>
 </template>
 
 <script setup lang="ts">
 import RouterMenu from '@/components/menu'
+import MainHeader from '@/components/main-header/index.vue'
 import jupiterUrl from '@/assets/jupiter.png'
 // import { ref } from 'vue'
 

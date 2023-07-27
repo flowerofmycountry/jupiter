@@ -16,11 +16,12 @@
 
 <script lang="ts" setup>
 import { useRoute } from 'vue-router'
-import { useActiveSubStore } from '@/store'
+import { useActiveSubStore, useAppStore } from '@/store'
 import { watch, ref } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
 // import { IframeHTMLAttributes } from 'vue'
 
+const appStore = useAppStore()
 const route = useRoute()
 const activeSubStore = useActiveSubStore()
 const name = ref('')
@@ -92,6 +93,26 @@ const plugins = [
   }
 ]
 
+// const themeHook = () => {
+//   const activeSubStore = useActiveSubStore()
+// const route = useRoute()
+
+//     // 子应用适配
+//     if (route.name === 'sub-app') {
+//       const subBody = window.document.querySelector(
+//         `iframe[name=${activeSubStore.name}]`
+//       )?.contentWindow.document.body
+
+//       if (subBody) {
+//         if (dark) {
+//           subBody.setAttribute('arco-theme', 'dark')
+//         } else {
+//           subBody.removeAttribute('arco-theme')
+//         }
+//       }
+//     }
+// }
+
 const beforeLoad = () => {
   console.log('wujie---------------beforeLoad')
 }
@@ -101,7 +122,18 @@ const beforeMount = () => {
 }
 
 const afterMount = () => {
-  console.log('wujie---------------afterMount')
+  console.log('子应用加载完成。')
+
+  if (route.name !== 'sub-app') return
+
+  // 子应用适配
+  const subBody = activeSubStore.activeBody!
+
+  if (appStore.theme === 'dark') {
+    subBody.setAttribute('arco-theme', 'dark')
+  } else {
+    subBody.removeAttribute('arco-theme')
+  }
 }
 
 const beforeUnmount = () => {

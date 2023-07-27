@@ -17,6 +17,15 @@ const ActiveSubStore = defineStore('active', {
 
     hasActiveSub(): boolean {
       return this.name !== undefined
+    },
+
+    activeBody(): HTMLElement | null {
+      // 子应用适配
+      const subFrame: any = window.document.querySelector(
+        `iframe[name=${this.name}]`
+      )
+
+      return subFrame ? subFrame.contentWindow.document.body : null
     }
   },
 

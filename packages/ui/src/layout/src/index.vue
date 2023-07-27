@@ -2,7 +2,7 @@
   <div class="f-layout">
     <a-layout style="height: 100%">
       <a-layout-header>
-        <nav-header :name="name" :logo="logo"></nav-header>
+        <slot name="header"></slot>
       </a-layout-header>
       <a-layout>
         <a-layout-sider style="width: auto" breakpoint="lg">
@@ -22,14 +22,7 @@ export default {
 }
 </script>
 
-<script setup lang="ts">
-import navHeader from './navHeader/index.vue'
-
-defineProps({
-  name: String,
-  logo: String
-})
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="less">
 .f-layout {

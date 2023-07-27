@@ -50,14 +50,12 @@ axios.interceptors.response.use(
         response.config.url !== '/api/user/info'
       ) {
         Modal.error({
-          title: 'Confirm logout',
-          content:
-            'You have been logged out, you can cancel to stay on this page, or log in again',
-          okText: 'Re-Login',
+          title: 'token 无效',
+          content: 'token 无效，需要重新登录！',
+          okText: '确定',
           async onOk() {
-            const userStore = useUserStore()
-
-            await userStore.logout()
+            // const userStore = useUserStore()
+            // await userStore.logout()
             window.location.reload()
           }
         })

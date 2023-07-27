@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
-export default () => {
-  const loading = ref(false)
+export default (initValue = false) => {
+  const loading = ref(initValue)
   const showLoading = () => {
     loading.value = true
   }

@@ -1,9 +1,12 @@
 <template>
   <div v-if="!isMicroApp">
-    <f-layout name="IO" :logo="ioUrl">
+    <f-layout>
       <router-view></router-view>
       <template v-slot:menu>
         <router-menu></router-menu>
+      </template>
+      <template v-slot:header>
+        <main-header name="JUPITER" :logo="ioUrl" />
       </template>
     </f-layout>
   </div>
@@ -12,6 +15,7 @@
 
 <script setup lang="ts">
 import RouterMenu from '@/components/menu'
+import MainHeader from '@/components/main-header/index.vue'
 import ioUrl from '@/assets/io-moon.png'
 
 console.log(ioUrl)

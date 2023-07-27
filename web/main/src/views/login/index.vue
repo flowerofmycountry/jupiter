@@ -1,5 +1,9 @@
 <template>
-  <f-login @submit="handleSubmit" :loading="loading" :errorMessage="errorMessage"></f-login>
+  <f-login
+    @submit="handleSubmit"
+    :loading="loading"
+    :errorMessage="errorMessage"
+  ></f-login>
 </template>
 
 <script setup lang="ts">
@@ -29,7 +33,7 @@ const loginConfig = useStorage<{
 
 const handleSubmit = async ({
   errors,
-  values,
+  values
 }: {
   errors: Record<string, ValidatedError> | undefined
   values: Record<string, any>
@@ -42,10 +46,10 @@ const handleSubmit = async ({
 
       const { redirect, ...othersQuery } = router.currentRoute.value.query
       router.push({
-        name: (redirect as string) || 'Workplace',
+        path: (redirect as string) || '/home',
         query: {
-          ...othersQuery,
-        },
+          ...othersQuery
+        }
       })
       Message.success('登录成功')
       const { rememberPassword } = loginConfig.value

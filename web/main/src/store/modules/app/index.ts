@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
 import { Notification } from '@arco-design/web-vue'
 import type { NotificationReturn } from '@arco-design/web-vue/es/notification/interface'
-import type { RouteRecordNormalized } from 'vue-router'
+import { useRoute } from 'vue-router'
 import defaultSettings from '@/config/settings.json'
 import { getMenuList } from '@/api/user'
 import { AppState, ServerMenu } from './types'
+import { useActiveSubStore } from '@/store'
 
 const useAppStore = defineStore('app', {
   state: (): AppState => ({ ...defaultSettings }),
@@ -18,7 +19,7 @@ const useAppStore = defineStore('app', {
     },
     appAsyncMenus(state: AppState): ServerMenu[] {
       return state.serverMenu as unknown as ServerMenu[]
-    },
+    }
   },
 
   actions: {
@@ -50,7 +51,7 @@ const useAppStore = defineStore('app', {
         notifyInstance = Notification.info({
           id: 'menuNotice', // Keep the instance id the same
           content: 'loading',
-          closable: true,
+          closable: true
         })
         const { data } = await getMenuList(projectId)
         this.serverMenu = data
@@ -58,21 +59,21 @@ const useAppStore = defineStore('app', {
         notifyInstance = Notification.success({
           id: 'menuNotice',
           content: 'success',
-          closable: true,
+          closable: true
         })
       } catch (error) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         notifyInstance = Notification.error({
           id: 'menuNotice',
           content: 'error',
-          closable: true,
+          closable: true
         })
       }
     },
     clearServerMenu() {
       this.serverMenu = []
-    },
-  },
+    }
+  }
 })
 
 export default useAppStore

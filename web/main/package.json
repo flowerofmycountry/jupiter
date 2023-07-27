@@ -12,6 +12,7 @@
     "@arco-design/web-vue": "^2.48.0",
     "@vueuse/core": "^10.2.0",
     "axios": "^1.4.0",
+    "jupiter-hoooks": "workspace:^",
     "jupiter-shared": "workspace:^",
     "jupiter-uii": "workspace:^",
     "lodash": "^4.17.21",
