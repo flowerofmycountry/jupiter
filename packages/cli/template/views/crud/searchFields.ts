@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { SearchField } from 'jupiter-hoooks'
 
 export default [

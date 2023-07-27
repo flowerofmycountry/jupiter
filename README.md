@@ -8,7 +8,7 @@
 - `packages/shared` 工具库
 - `packages/hooks` 工具库
 - `packages/cli` 脚手架用于生成新的子应用，及子应用通用 CRUD 页面
-- `mockserver` 基于 **lowdb** 和 **express** 的测试用后端服务
+- `mock-server` 基于 **lowdb** 和 **express** 的测试用后端服务
 
 ## 主要技术栈
 

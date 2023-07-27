@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { TableColumnData } from '@arco-design/web-vue'
 
 export default [

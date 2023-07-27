@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import { create, update, get } from '@/api/crud'
 import { useFormModal } from 'jupiter-hoooks'
 

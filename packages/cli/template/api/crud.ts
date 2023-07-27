@@ -1,3 +1,4 @@
+// @ts-nocheck
 import axios from 'axios'
 import { PagingQueryParams, PagingQueryResult } from 'jupiter-hoooks'
 

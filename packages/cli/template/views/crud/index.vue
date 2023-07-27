@@ -31,6 +31,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-nocheck
 import FormModal from './form-modal.vue'
 import type { Crud } from '@/api/crud'
 import { list, del } from '@/api/crud'

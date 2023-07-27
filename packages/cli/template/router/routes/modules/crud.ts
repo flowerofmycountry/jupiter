@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { RouteRecordRaw } from 'vue-router'
 
 const CRUD: RouteRecordRaw = {
