@@ -21,5 +21,6 @@ export function camelToKebab(target: string) {
  * @returns {string} 驼峰命名的字符串
  */
 export function kebabToCamel(target: string) {
+  // @ts-ignore
   return target.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
 }

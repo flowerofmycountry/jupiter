@@ -2,11 +2,12 @@
   "name": "jupiter-uii",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "type": "module",
   "publishConfig": {
     "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    "types": "dist/index.d.ts"
   },
   "repository": {
     "type": "git",

@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "publish:packages": "pnpm publish:shared && pnpm publish:hooks && pnpm publish:ui",
-    "dev": "concurrently --kill-others \"pnpm serv\" \"pnpm dev:main\" \"pnpm dev:sub\"",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
     "dev:main": "pnpm -F main dev",
     "dev:sub": "pnpm -F sub dev",
     "serv": "pnpm -F mock-server dev",
+    "publish:packages": "pnpm publish:shared && pnpm publish:hooks && pnpm publish:ui",
     "publish:shared": "pnpm -F jupiter-shared publish",
     "publish:hooks": "pnpm -F jupiter-hoooks publish",
     "publish:ui": "pnpm -F jupiter-uii publish",
@@ -18,6 +22,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "eslint": "^8.45.0",
+    "eslint-config-custom": "workspace:^",
+    "prettier": "^3.0.0",
+    "turbo": "latest"
   }
 }

@@ -1,5 +1,11 @@
-# Package Manager
+.DS_Store
 node_modules
-
-# Bundle
+.turbo
+*.log
 dist
+dist-ssr
+*.local
+.env
+.cache
+server/dist
+public/dist

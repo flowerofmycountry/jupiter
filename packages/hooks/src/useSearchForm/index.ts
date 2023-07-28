@@ -1,7 +1,7 @@
 import { FetchDataApiType, SearchField } from '../types'
 import { ref } from 'vue'
 
-export default function <T = any>(
+export default function (
   searchFields: SearchField[],
   fetchData: FetchDataApiType
 ) {

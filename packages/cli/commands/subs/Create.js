@@ -20,7 +20,7 @@ class Create extends Command {
     const description = await input({ message: '请输入项目描述：' })
     const author = await input({
       message: '请输入作者：',
-      default: 'flowerofmycountry'
+      default: 'jupiter'
     })
     const version = await input({ message: '请输入版本号：', default: '1.0.0' })
 
