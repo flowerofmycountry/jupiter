@@ -2,6 +2,7 @@
   "name": "mock-server",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "type": "module",
   "exports": "./dist/index.js",
   "engines": {

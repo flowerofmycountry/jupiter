@@ -1,7 +1,7 @@
 {
   "name": "jupiter-hoooks",
   "version": "1.0.1",
-  "description": "",
+  "description": "vue组合式函数(Composables, hooks)",
   "main": "./index.ts",
   "types": "./index.ts",
   "publishConfig": {

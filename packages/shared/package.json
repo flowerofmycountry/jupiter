@@ -1,7 +1,7 @@
 {
   "name": "jupiter-shared",
   "version": "1.0.1",
-  "description": "",
+  "description": "项目通用工具",
   "main": "./index.ts",
   "types": "./index.ts",
   "publishConfig": {

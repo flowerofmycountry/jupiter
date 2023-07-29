@@ -1,7 +1,7 @@
 {
-  "name": "jupiter-cli",
+  "name": "jupiter-clii",
   "version": "1.0.0",
-  "description": "",
+  "description": "脚手架，用于创建子项目以及子项目页面",
   "preferGlobal": true,
   "bin": {
     "jupiter-cli": "./bin/index.js"
