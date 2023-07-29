@@ -9,8 +9,6 @@
     "node": ">=16"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
     "dev": "concurrently \"tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "keywords": [],

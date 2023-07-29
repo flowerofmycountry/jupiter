@@ -11,7 +11,7 @@
     "clean": "turbo run clean",
     "publish-packages": "changeset version && changeset publish",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "commit": "cz"
+    "commit": "cz -a"
   },
   "keywords": [],
   "author": "",
