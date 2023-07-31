@@ -6,7 +6,7 @@
     @before-ok="handleBeforeOk"
   >
     <a-form ref="formRef" :disabled="readonly" :model="form" :rules="rules">
-      <a-form-item label="姓名">
+      <a-form-item label="姓名1">
         <a-input v-model="form.name" />
       </a-form-item>
       <a-form-item label="年龄">

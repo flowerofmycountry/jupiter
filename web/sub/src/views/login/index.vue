@@ -1,9 +1,14 @@
 <template>
-  <f-login @submit="handleSubmit" :loading="loading" :errorMessage="errorMessage"></f-login>
+  <f-login
+    @submit="handleSubmit"
+    :loading="loading"
+    :errorMessage="errorMessage"
+  ></f-login>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Login as FLogin } from 'jupiter-uii'
 import { useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
 import { ValidatedError } from '@arco-design/web-vue/es/form/interface'
@@ -20,24 +25,22 @@ const setLoading = (value: boolean) => {
 const errorMessage = ref('')
 
 const handleSubmit = async ({
-  errors,
-  values,
+  errors
 }: {
   errors: Record<string, ValidatedError> | undefined
-  values: Record<string, any>
 }) => {
   if (loading.value) return
   if (!errors) {
     setLoading(true)
     try {
-      await userStore.login(values as any)
+      await userStore.login()
 
       const { redirect, ...othersQuery } = router.currentRoute.value.query
       router.push({
         name: (redirect as string) || 'Workplace',
         query: {
-          ...othersQuery,
-        },
+          ...othersQuery
+        }
       })
       Message.success('登录成功')
     } catch (err) {

@@ -1,5 +1,12 @@
 /// <reference types="vite/client" />
 
+declare module '*.vue' {
+  import { DefineComponent } from 'vue'
+
+  const component: DefineComponent<{}, {}, any>
+  export default component // 这里有 export, 但不是顶级的，所以是全局可见的
+}
+
 interface Window {
   // 是否存在无界
   __POWERED_BY_WUJIE__?: boolean

@@ -35,7 +35,11 @@
 </template>
 
 <script setup lang="ts">
-import { Message } from '@arco-design/web-vue'
+import { ref } from 'vue'
+import {
+  TableFeatureBar as FTableFeatureBar,
+  SearchForm as FSearchForm
+} from 'jupiter-uii'
 import FormModal from './form-modal.vue'
 import PageHeader from '@/components/page-header/index.vue'
 import type { Crud } from '@/api/crud'
@@ -43,7 +47,7 @@ import { list, del } from '@/api/crud'
 import { useTable, useSearchForm } from 'jupiter-hoooks'
 import columns from './columns'
 import fields from './searchFields'
-import { ref } from 'vue'
+import { Message } from '@arco-design/web-vue'
 
 const modalRef = ref<InstanceType<typeof FormModal>>()
 

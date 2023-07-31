@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import { cloneDeep } from 'lodash'
+import cloneDeep from 'lodash/cloneDeep'
 import { appRoutes } from '@/router/routes'
 import { MenuRecord } from './types'
 // import usePermission from '@/hooks/permission';

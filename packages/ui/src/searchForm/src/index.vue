@@ -1,35 +1,37 @@
 <template>
-  <a-form :model="form" label-align="left" ref="formRef">
-    <a-row :gutter="16">
-      <a-col
-        v-for="field in fields"
-        :key="field.key"
-        :xs="24"
-        :sm="12"
-        :md="12"
-        :lg="8"
-        :xl="8"
-        :xxl="6"
-      >
-        <form-item :field="field" :form="form"></form-item>
-      </a-col>
-    </a-row>
-  </a-form>
-  <div style="display: flex; flex-direction: row-reverse">
-    <a-space :size="12">
-      <a-button type="primary" @click="search">
-        <template #icon>
-          <icon-search />
-        </template>
-        搜索
-      </a-button>
-      <a-button @click="reset">
-        <template #icon>
-          <icon-refresh />
-        </template>
-        重置
-      </a-button>
-    </a-space>
+  <div>
+    <a-form :model="form" label-align="left" ref="formRef">
+      <a-row :gutter="16">
+        <a-col
+          v-for="field in fields"
+          :key="field.key"
+          :xs="24"
+          :sm="12"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+        >
+          <form-item :field="field" :form="form"></form-item>
+        </a-col>
+      </a-row>
+    </a-form>
+    <div style="display: flex; flex-direction: row-reverse">
+      <a-space :size="12">
+        <a-button type="primary" @click="search">
+          <template #icon>
+            <icon-search />
+          </template>
+          搜索
+        </a-button>
+        <a-button @click="reset">
+          <template #icon>
+            <icon-refresh />
+          </template>
+          重置
+        </a-button>
+      </a-space>
+    </div>
   </div>
 </template>
 

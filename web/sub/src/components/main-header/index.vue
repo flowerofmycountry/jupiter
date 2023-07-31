@@ -36,7 +36,7 @@
             </template>
           </a-button>
         </a-tooltip>
-        <a-dropdown trigger="click" @select="changeLocale">
+        <a-dropdown trigger="click" @select="changeLocale as any">
           <div ref="triggerBtn" class="trigger-btn"></div>
           <template #content>
             <a-doption
@@ -205,6 +205,10 @@ const locales = [
 const currentLocale = useLocalStorage('arco-locale', 'zh-CN')
 const changeLocale = (value: string) => {
   currentLocale.value = value
+}
+
+const handleLogout = () => {
+  console.log('logout')
 }
 </script>
 

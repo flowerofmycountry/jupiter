@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { ChooseIcon as FChooseIcon } from 'jupiter-uii'
 import PageHeader from '@/components/page-header/index.vue'
 const visible = ref(false)
 </script>

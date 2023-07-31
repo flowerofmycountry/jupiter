@@ -6,7 +6,7 @@
         <router-menu></router-menu>
       </template>
       <template v-slot:header>
-        <main-header name="JUPITER" :logo="ioUrl" />
+        <main-header name="IO" :logo="ioUrl" />
       </template>
     </f-layout>
   </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import { Layout as FLayout } from 'jupiter-uii'
 import RouterMenu from '@/components/menu'
 import MainHeader from '@/components/main-header/index.vue'
 import ioUrl from '@/assets/io-moon.png'

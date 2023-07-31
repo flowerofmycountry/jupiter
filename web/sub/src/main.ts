@@ -8,17 +8,12 @@ import createRouter from './router'
 // 样式
 import '@/assets/style/global.less'
 
-// arco
-import ArcoVue from '@arco-design/web-vue'
-import ArcoVueIcon from '@arco-design/web-vue/es/icon'
-import '@arco-design/web-vue/dist/arco.css'
-
-import UI from 'jupiter-uii'
-// import '@flowerofmycountry/ui/dist/style.css'
-
 import directive from '@/directive'
 
 import '@/api/interceptor'
+
+// import ArcoVue from '@arco-design/web-vue'
+// import ArcoVueIcon from '@arco-design/web-vue/es/icon/arco-vue-icon'
 
 if (window.__POWERED_BY_WUJIE__) {
   console.log('子应用 __POWERED_BY_WUJIE__')
@@ -26,13 +21,11 @@ if (window.__POWERED_BY_WUJIE__) {
   let instance: any
   window.__WUJIE_MOUNT = () => {
     instance = createApp(App)
-    instance.use(ArcoVue)
-    instance.use(ArcoVueIcon)
-    instance.use(UI)
+    // instance.use(ArcoVue)
+    // instance.use(ArcoVueIcon)
     instance.use(directive)
     instance.use(createRouter()) // 一定要在这里创建路由实例
     instance.use(store)
-
     instance.mount('#app')
   }
 
@@ -48,9 +41,8 @@ if (window.__POWERED_BY_WUJIE__) {
   window.__WUJIE.mount()
 } else {
   createApp(App)
-    .use(ArcoVue)
-    .use(ArcoVueIcon)
-    .use(UI)
+    // .use(ArcoVue)
+    // .use(ArcoVueIcon)
     .use(directive)
     .use(createRouter())
     .use(store)
