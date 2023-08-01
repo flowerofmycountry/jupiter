@@ -29,7 +29,7 @@ interface Window {
     bus: EventBus
     shadowRoot?: ShadowRoot
     props?: { [key: string]: any }
-    location?: Object
+    location?: Location
   }
   Message: any
 }

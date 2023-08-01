@@ -7,9 +7,7 @@ function checkPermission(el: HTMLElement, binding: DirectiveBinding<string>) {
     if (value) {
       const permissions = value.split(',')
       // 这里以后要从 store 中取出用户的权限 进行判断
-      const hasPermission = permissions.some(_ => {
-        return true
-      })
+      const hasPermission = permissions.some(() => true)
       if (!hasPermission) {
         el.parentNode && el.parentNode.removeChild(el)
       }

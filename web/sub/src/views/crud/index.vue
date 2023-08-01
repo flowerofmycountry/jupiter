@@ -40,14 +40,14 @@ import {
   TableFeatureBar as FTableFeatureBar,
   SearchForm as FSearchForm
 } from 'jupiter-uii'
-import FormModal from './form-modal.vue'
+import { useTable, useSearchForm } from 'jupiter-hoooks'
+import { Message } from '@arco-design/web-vue'
 import PageHeader from '@/components/page-header/index.vue'
 import type { Crud } from '@/api/crud'
 import { list, del } from '@/api/crud'
-import { useTable, useSearchForm } from 'jupiter-hoooks'
+import FormModal from './form-modal.vue'
 import columns from './columns'
 import fields from './searchFields'
-import { Message } from '@arco-design/web-vue'
 
 const modalRef = ref<InstanceType<typeof FormModal>>()
 

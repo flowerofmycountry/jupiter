@@ -6,11 +6,11 @@ function generateRoutes(path: string) {
   const res = paths.reduce((acc, cu) => {
     if (cu === '') return acc
     if (acc.length === 0) {
-      acc.push('/' + cu)
+      acc.push()
       return acc
     }
     const last = acc[acc.length - 1]
-    acc.push(last + '/' + cu)
+    acc.push(`${last}/${cu}`)
     return acc
   }, [] as string[])
 

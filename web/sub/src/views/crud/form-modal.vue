@@ -6,7 +6,7 @@
     @before-ok="handleBeforeOk"
   >
     <a-form ref="formRef" :disabled="readonly" :model="form" :rules="rules">
-      <a-form-item label="姓名1">
+      <a-form-item label="姓名">
         <a-input v-model="form.name" />
       </a-form-item>
       <a-form-item label="年龄">
@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { create, update, get } from '@/api/crud'
 import { useFormModal } from 'jupiter-hoooks'
+import { create, update, get } from '@/api/crud'
 
 const props = defineProps<{
   fetchData: () => void
@@ -59,11 +59,11 @@ const {
   $api: {
     insert: create,
     detail: get,
-    update: update
+    update
   },
-  formatInParams: form => {
+  formatInParams: formData => {
     return {
-      ...form
+      ...formData
     }
   },
   formatOutParams: params => {

@@ -6,5 +6,6 @@ module.exports = {
   jsxSingleQuote: false, // jsx单引号
   bracketSpacing: true, // 花括号前后空格
   trailingComma: 'none', // 尾随逗号
-  arrowParens: 'avoid' // 箭头函数单参数时是否加括号
+  arrowParens: 'avoid', // 箭头函数单参数时是否加括号
+  endOfLine: 'crlf' // 换行符
 }

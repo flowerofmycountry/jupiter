@@ -1,8 +1,8 @@
 import { defineComponent, ref, h, compile } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { MenuRecord } from './types'
 import { listenerRouteChange } from 'jupiter-shared'
 import useMenuTree from './use-menu-tree'
+import { MenuRecord } from './types'
 
 export default defineComponent({
   name: 'RouterMenu',

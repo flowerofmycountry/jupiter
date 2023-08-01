@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import { ActionBar as FActionBar } from 'jupiter-uii'
 import useRouteLocales from '@/hooks/useRouteLocales'
+
 const { locales } = useRouteLocales()
 </script>
 

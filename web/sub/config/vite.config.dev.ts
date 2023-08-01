@@ -13,6 +13,7 @@ const devConfig = mergeConfig(
       }
     },
     plugins: [
+      // // 这里不用eslint插件，放到最外层的 turbo 中使用
       // eslint({
       //   cache: false,
       //   include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue'],

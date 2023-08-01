@@ -14,4 +14,4 @@ function formatModules(_modules: any, result: RouteRecordRaw[]) {
   return result
 }
 
-export const appRoutes: RouteRecordRaw[] = formatModules(modules, [])
+export default formatModules(modules, [])

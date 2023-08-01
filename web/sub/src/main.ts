@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+import directive from '@/directive'
+
 import App from './App.vue'
 import store from './store'
 
@@ -7,8 +9,6 @@ import createRouter from './router'
 
 // 样式
 import '@/assets/style/global.less'
-
-import directive from '@/directive'
 
 import '@/api/interceptor'
 
