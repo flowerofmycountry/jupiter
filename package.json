@@ -9,6 +9,7 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
+    "test": "turbo run test",
     "publish-packages": "changeset version && changeset publish",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
     "commit": "cz -a"
@@ -26,3 +27,4 @@
     "turbo": "latest"
   }
 }
+

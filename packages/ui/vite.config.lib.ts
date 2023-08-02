@@ -4,8 +4,6 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 
-console.log(__dirname)
-
 export default defineConfig({
   plugins: [
     vue(),
@@ -22,13 +20,13 @@ export default defineConfig({
     rollupOptions: {
       output: [
         {
-          //打包格式
+          // 打包格式
           format: 'es',
-          //打包后文件名
+          // 打包后文件名
           entryFileNames: '[name].js',
           // preserveModules: true,
           // preserveModulesRoot: 'src',
-          //配置打包根目录
+          // 配置打包根目录
           dir: 'dist'
         }
       ],

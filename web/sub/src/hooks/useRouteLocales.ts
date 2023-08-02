@@ -1,12 +1,12 @@
 import { useRoute, useRouter } from 'vue-router'
 
-function generateRoutes(path: string) {
+export function generateRoutes(path: string) {
   const paths = path.split('/')
 
   const res = paths.reduce((acc, cu) => {
     if (cu === '') return acc
     if (acc.length === 0) {
-      acc.push()
+      acc.push(`/${cu}`)
       return acc
     }
     const last = acc[acc.length - 1]

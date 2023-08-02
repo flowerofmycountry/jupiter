@@ -7,7 +7,8 @@
     "dev": "vite --config ./config/vite.config.dev.ts",
     "build": "vue-tsc --noEmit && vite build --config ./config/vite.config.prod.ts",
     "preview": "vite preview",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "vitest run --config ./config/vite.config.dev.ts"
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.49.2",
@@ -33,10 +34,13 @@
     "remove": "^0.1.5",
     "tsconfig": "workspace:^",
     "typescript": "^5.1.6",
+    "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.7",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-eslint": "^1.8.1",
+    "vitest": "^0.33.0",
     "vue-tsc": "^1.8.8"
   }
 }
+

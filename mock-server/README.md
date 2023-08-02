@@ -35,3 +35,17 @@ Node.js 中对 ESM 的支持现已在 Node.js 中实现。
 - imports might resolve differently from dependencies in node_modules
 - 某些类似全局的值，如 `require()` 和 `__dirname` 不能直接使用
 - CommonJS modules get imported under certain special rules
+
+## tsup
+
+Bundle your TypeScript library with no config, powered by esbuild.
+
+## nodemon
+
+Nodemon is a utility depended on about 3 million projects, that will monitor for any changes in your source and automatically restart your server. Perfect for development.
+
+Swap nodemon instead of node to run your code, and now your process will automatically restart when your code changes.
+
+## ts-node
+
+直接 node 运行 ts 文件。

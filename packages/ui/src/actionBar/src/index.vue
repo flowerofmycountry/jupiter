@@ -9,12 +9,6 @@
   </a-breadcrumb>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'ActionBar'
-}
-</script>
-
 <script lang="ts" setup>
 import { PropType } from 'vue'
 
@@ -26,6 +20,12 @@ defineProps({
     }
   }
 })
+</script>
+
+<script lang="ts">
+export default {
+  name: 'ActionBar'
+}
 </script>
 
 <style lang="less">

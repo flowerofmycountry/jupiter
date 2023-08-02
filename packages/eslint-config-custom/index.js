@@ -7,6 +7,8 @@
 
 // console.log(path.resolve(__dirname, '../../**/tsconfig.json'))
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -81,11 +83,12 @@ module.exports = {
         tsx: 'never'
       }
     ],
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-debugger': isProd ? 2 : 0,
     'no-param-reassign': 0,
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
     'no-underscore-dangle': 0,
-    'no-unused-expressions': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-unused-expressions': isProd ? 2 : 0,
+    'import/prefer-default-export': isProd ? 2 : 0
   }
 }
