@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+
+import { IconFont } from 'jupiter-uii'
 import directive from '@/directive'
 
 import App from './App.vue'
@@ -21,7 +23,7 @@ if (window.__POWERED_BY_WUJIE__) {
   let instance: any
   window.__WUJIE_MOUNT = () => {
     instance = createApp(App)
-    // instance.use(ArcoVue)
+    instance.use(IconFont)
     // instance.use(ArcoVueIcon)
     instance.use(directive)
     instance.use(createRouter()) // 一定要在这里创建路由实例
@@ -41,7 +43,7 @@ if (window.__POWERED_BY_WUJIE__) {
   window.__WUJIE.mount()
 } else {
   createApp(App)
-    // .use(ArcoVue)
+    .use(IconFont)
     // .use(ArcoVueIcon)
     .use(directive)
     .use(createRouter())

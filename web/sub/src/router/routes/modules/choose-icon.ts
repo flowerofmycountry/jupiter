@@ -6,7 +6,7 @@ const CHOOSEICON: RouteRecordRaw = {
   component: () => import('@/views/choose-icon/index.vue'),
   meta: {
     locale: '图标选择器',
-    icon: 'icon-home',
+    icon: 'icon-tubiao',
     order: 0
   }
 }

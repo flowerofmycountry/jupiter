@@ -61,7 +61,8 @@ export default defineComponent({
         // console.log(element)
 
         const title = () => <span>{element.meta?.locale}</span>
-        const icon = () => h(compile(`<${element.meta?.icon} />`))
+        const icon = () =>
+          h(compile(`<f-icon-font type="${element.meta?.icon}" :size="20"/>`))
         // const slotRenders = {
         //   title: () => <span>{item.name}</span>,
         //   icon: () => <item.icon />,

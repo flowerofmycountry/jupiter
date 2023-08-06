@@ -3,11 +3,11 @@
   "version": "1.0.1",
   "description": "",
   "main": "./index.ts",
-  "types": "./index.ts",
+  "typings": "./index.ts",
   "type": "module",
   "publishConfig": {
     "main": "dist/index.js",
-    "types": "dist/index.d.ts"
+    "typings": "dist/index.d.ts"
   },
   "repository": {
     "type": "git",
@@ -29,11 +29,15 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.49.2",
     "@vueuse/core": "^10.3.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "jupiter-hoooks": "workspace:^",
     "jupiter-shared": "workspace:^",
+    "lodash-es": "^4.17.21",
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.8",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue/runtime-core": "^3.3.4",
@@ -42,3 +46,4 @@
     "vite-plugin-dts": "^3.4.0"
   }
 }
+

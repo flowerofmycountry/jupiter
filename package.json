@@ -12,7 +12,7 @@
     "test": "turbo run test",
     "publish-packages": "changeset version && changeset publish",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "commit": "cz -a"
+    "commit": "git add . && cz -a"
   },
   "keywords": [],
   "author": "",

@@ -6,18 +6,23 @@
   <a-modal
     :title="title"
     :visible="visible"
-    @cancel="updateVisible"
     :width="800"
+    @cancel="updateVisible"
+    @ok="onOk"
   >
     <a-row :gutter="5">
-      <a-col v-for="item in iconList" :key="item" :span="4">
-        <div class="item">
+      <a-col v-for="(item, index) in iconList" :key="index" :span="4">
+        <div
+          class="item"
+          :class="[{ 'item-clicked': item.clicked }]"
+          @click="item.clicked = !item.clicked"
+        >
           <!-- <component :is="item" style="cursor: pointer" :></component> -->
           <span>
-            <icon-font :type="item" :size="30" />
+            <icon-font :type="item.name" :size="30" />
           </span>
 
-          <span style="font-size: xx-small">{{ item }}</span>
+          <span style="font-size: xx-small">{{ item.name }}</span>
         </div>
       </a-col>
     </a-row>
@@ -25,37 +30,61 @@
 </template>
 
 <script setup lang="ts">
-// import * as ArcoIcons from '@arco-design/web-vue/es/icon'
-// import { camelToKebab } from 'jupiter-shared'
+import { ref } from 'vue'
 import { Icon } from '@arco-design/web-vue'
+import { ICONFONTURL } from '../../config'
 
-const iconList = [
-  'icon-xitongcaidan',
-  'icon-moban',
-  'icon-role',
-  'icon-moon-full-moon',
-  'icon-Moon-',
-  'icon-zujianku-tubiao',
-  'icon-jurassic_user',
-  'icon-jiekou'
-]
+const initData = () => {
+  return [
+    'icon-qipao',
+    'icon-tongzhi',
+    'icon-biaodan',
+    'icon-moon-full',
+    'icon-moon-half',
+    'icon-front',
+    'icon-tanchuang',
+    'icon-jiekou',
+    'icon-moban',
+    'icon-role',
+    'icon-tubiao',
+    'icon-user',
+    'icon-user-group'
+  ].map(item => {
+    return {
+      name: item,
+      clicked: false
+    }
+  })
+}
+
+const iconList = ref(initData())
 
 const IconFont = Icon.addFromIconFontCn({
-  src: 'https://at.alicdn.com/t/c/font_4192104_746num9zw2j.js'
+  src: ICONFONTURL
 })
-
-console.log(IconFont)
 
 const props = defineProps<{
   title?: string
   visible?: boolean
 }>()
 
-const emits = defineEmits(['update:visible'])
+const emits = defineEmits<{
+  (e: 'update:visible', visible: boolean): void
+  (e: 'onComfirm', iconNames: string[]): void
+}>()
 
 const updateVisible = () => {
+  iconList.value = initData()
   // 修改父组件数据
   emits('update:visible', !props.visible)
+}
+
+const onOk = () => {
+  const result = iconList.value
+    .filter(item => item.clicked)
+    .map(item => item.name)
+  emits('onComfirm', result)
+  emits('update:visible', false)
 }
 </script>
 
@@ -74,22 +103,8 @@ export default {
   text-align: center;
   cursor: pointer;
 }
-// .container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   height: 500px;
-//   .item {
-//     width: 20%;
-//     height: 100px;
-//     display: flex;
-//     justify-content: space-evenly;
-//     align-items: center;
-//     flex-direction: column;
-//   }
 
-//   svg {
-//     height: 1.5em;
-//     width: 1.5em;
-//   }
-// }
+.item-clicked {
+  color: var(--color-primary-light-4);
+}
 </style>

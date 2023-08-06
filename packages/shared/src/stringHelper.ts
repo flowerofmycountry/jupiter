@@ -8,7 +8,7 @@
  */
 export function camelToKebab(target: string) {
   return target
-    .replace(/[A-Z]/g, match => '-' + match.toLowerCase())
+    .replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
     .replace(/^-/, '')
 }
 
@@ -23,4 +23,16 @@ export function camelToKebab(target: string) {
 export function kebabToCamel(target: string) {
   // @ts-ignore
   return target.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
+}
+
+/**
+ * 将串式命名转化为首字母大写的驼峰命名
+ * @date 6/18/2023 - 4:43:03 PM
+ *
+ * @export
+ * @param {string} target 串式命名的字符串
+ * @returns {string} 首字母大写的驼峰命名
+ */
+export function kebabToUpperCamelCase(target: string) {
+  return kebabToCamel(target).replace(/^[a-z]/, match => match.toUpperCase())
 }

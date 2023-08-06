@@ -1,12 +1,12 @@
+import asyncHandler from 'express-async-handler'
 import db from './crud.js'
 import { success, listSuccess } from '../../common/result.js'
-import asyncHandler from 'express-async-handler'
 
 export const list = asyncHandler(async (req: any, res: any, next: any) => {
   const { current, size, name, age } = req.query
   const start = (current - 1) * size
   const end = current * size
-  const list = db.chain
+  const pageResult = db.chain
     .get('crud')
     .filter((item: any) => {
       if (name && item.name !== name) return false
@@ -19,9 +19,9 @@ export const list = asyncHandler(async (req: any, res: any, next: any) => {
   return res.json(
     listSuccess(
       current,
-      list.length,
+      pageResult.length,
       size,
-      list.slice(start, end).sort((a: any, b: any) => a.id - b.id)
+      pageResult.slice(start, end).sort((a: any, b: any) => a.id - b.id)
     )
   )
 })

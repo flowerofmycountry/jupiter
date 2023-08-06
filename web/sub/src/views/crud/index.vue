@@ -3,10 +3,10 @@
     <page-header />
     <a-card class="general-card">
       <f-search-form
-        :fields="fields"
-        :form="searchForm"
-        @search="handleSearch"
-        @reset="handleReset"
+        :options="fields"
+        :cols="3"
+        @search="search"
+        @reset="reset"
       ></f-search-form>
       <a-divider></a-divider>
       <f-table-feature-bar @add="add"></f-table-feature-bar>
@@ -25,7 +25,6 @@
             <a-popconfirm content="是否确认删除?" @ok="remove(record)">
               <a-button type="text">删除</a-button>
             </a-popconfirm>
-            <a-button type="text" @click="alertMsg">alert</a-button>
           </a-space>
         </template>
       </a-table>
@@ -40,8 +39,7 @@ import {
   TableFeatureBar as FTableFeatureBar,
   SearchForm as FSearchForm
 } from 'jupiter-uii'
-import { useTable, useSearchForm } from 'jupiter-hoooks'
-import { Message } from '@arco-design/web-vue'
+import { useTable } from 'jupiter-hoooks'
 import PageHeader from '@/components/page-header/index.vue'
 import type { Crud } from '@/api/crud'
 import { list, del } from '@/api/crud'
@@ -60,10 +58,18 @@ const {
   fetchData
 } = useTable<Crud>(list)
 
-const { searchForm, handleSearch, handleReset } = useSearchForm(
-  fields,
-  fetchData
-)
+const search = (params: Record<string, any>) => {
+  fetchData({
+    current: 1,
+    ...params
+  })
+}
+
+const reset = () => {
+  fetchData({
+    current: 1
+  })
+}
 
 const add = () => {
   modalRef.value?.add()
@@ -81,10 +87,6 @@ const remove = (record: Crud) => {
   del(record.id).then(() => {
     fetchData()
   })
-}
-
-const alertMsg = () => {
-  Message.info('无界微前端中，页面切换会让整个应用重新卸载挂载')
 }
 </script>
 

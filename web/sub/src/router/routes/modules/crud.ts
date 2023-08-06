@@ -6,7 +6,7 @@ const CRUD: RouteRecordRaw = {
   component: () => import('@/views/crud/index.vue'),
   meta: {
     locale: '增删改查模板页',
-    icon: 'icon-home',
+    icon: 'icon-moban',
     order: 0
   }
 }

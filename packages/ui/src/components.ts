@@ -7,6 +7,8 @@ declare module '@vue/runtime-core' {
     FTableFeatureBar: typeof import('../index')['TableFeatureBar']
     FActionBar: typeof import('../index')['ActionBar']
     FSearchForm: typeof import('../index')['SearchForm']
+    FIconFont: typeof import('../index')['IconFont']
+    FForm: typeof import('../index')['Form']
   }
 }
 

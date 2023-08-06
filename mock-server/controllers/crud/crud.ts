@@ -1,9 +1,9 @@
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
 import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
 import lodash from 'lodash'
 // import defaultData from './crud.json' assert { type: 'json' }
-import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
 
 type Data = {
   crud: {
@@ -22,7 +22,7 @@ class LowWithLodash<T> extends Low<T> {
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const file = join(__dirname, '../../../controllers/crud/crud.json')
+const file = join(__dirname, './crud.json')
 
 console.log(file)
 

@@ -2,10 +2,10 @@
   <div v-if="!isMicroApp">
     <f-layout>
       <router-view></router-view>
-      <template v-slot:menu>
+      <template #menu>
         <router-menu></router-menu>
       </template>
-      <template v-slot:header>
+      <template #header>
         <main-header name="IO" :logo="ioUrl" />
       </template>
     </f-layout>
@@ -19,7 +19,7 @@ import RouterMenu from '@/components/menu'
 import MainHeader from '@/components/main-header/index.vue'
 import ioUrl from '@/assets/io-moon.png'
 
-console.log(ioUrl)
+// console.log(ioUrl)
 
 const isMicroApp = !!window.__POWERED_BY_WUJIE__
 </script>

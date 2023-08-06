@@ -11,6 +11,8 @@ import {
 
 const app: express.Application = express()
 
+const redisTokens = ['Bearer 1234567890', 'Bearer abcdefghij']
+
 app.use(express.json()) // for parsing application/json
 
 // 业务异常
@@ -30,7 +32,7 @@ function success(data: unknown) {
 }
 
 // 看token是否有效
-app.use('/api', function (req, res, next) {
+app.use('/api', (req, res, next) => {
   const token = req.headers.authorization as string
 
   // 需要登录
@@ -47,7 +49,7 @@ app.use('/api', function (req, res, next) {
   next()
 })
 
-app.post('/api/user/info', function (req, res, next) {
+app.post('/api/user/info', (req, res) => {
   // 这里根据 token 获取用户信息
   // 通过用户信息获取响应权限
   const { token } = req as any
@@ -71,8 +73,6 @@ app.post('/api/crud', crudCreate)
 app.put('/api/crud', crudUpdate)
 app.delete('/api/crud/:id', crudDel)
 app.get('/api/crud/:id', crudGet)
-
-var redisTokens = ['Bearer 1234567890', 'Bearer abcdefghij']
 
 // sso login，获取tiket
 app.post('/login', function (req, res, next) {

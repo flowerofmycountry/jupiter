@@ -162,6 +162,7 @@ import {
   useLocalStorage
 } from '@vueuse/core'
 import { ref } from 'vue'
+import MessageBox from '@/components/message-box/index.vue'
 
 defineProps({
   name: String,

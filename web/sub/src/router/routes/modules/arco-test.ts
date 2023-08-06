@@ -5,7 +5,7 @@ const CHOOSEICON: RouteRecordRaw = {
   name: 'arco-test',
   meta: {
     locale: 'arco&无界微前端',
-    icon: 'icon-home',
+    icon: 'icon-front',
     order: 2
   },
   children: [
@@ -15,7 +15,7 @@ const CHOOSEICON: RouteRecordRaw = {
       component: () => import('@/views/arco-test/popup/index.vue'),
       meta: {
         locale: '气泡类',
-        icon: 'icon-home',
+        icon: 'icon-qipao',
         order: 1
       }
     },
@@ -25,7 +25,7 @@ const CHOOSEICON: RouteRecordRaw = {
       component: () => import('@/views/arco-test/message/index.vue'),
       meta: {
         locale: '通知类',
-        icon: 'icon-home',
+        icon: 'icon-tongzhi',
         order: 0
       }
     },
@@ -35,7 +35,7 @@ const CHOOSEICON: RouteRecordRaw = {
       component: () => import('@/views/arco-test/form-item/index.vue'),
       meta: {
         locale: '表单类',
-        icon: 'icon-home',
+        icon: 'icon-biaodan',
         order: 0
       }
     },
@@ -45,7 +45,7 @@ const CHOOSEICON: RouteRecordRaw = {
       component: () => import('@/views/arco-test/modal/index.vue'),
       meta: {
         locale: '弹窗类',
-        icon: 'icon-home',
+        icon: 'icon-tanchuang',
         order: 0
       }
     }

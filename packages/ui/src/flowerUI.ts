@@ -5,7 +5,9 @@ import Layout from './layout'
 import Login from './login'
 import ActionBar from './actionBar'
 import TableFeatureBar from './tableFeatureBar'
+import Form from './form'
 import SearchForm from './searchForm'
+import IconFont from './icon'
 
 const components: Record<string, Plugin> = {
   ChooseIcon,
@@ -13,7 +15,9 @@ const components: Record<string, Plugin> = {
   Login,
   ActionBar,
   TableFeatureBar,
-  SearchForm
+  Form,
+  SearchForm,
+  IconFont
 }
 
 const install = (app: App) => {
