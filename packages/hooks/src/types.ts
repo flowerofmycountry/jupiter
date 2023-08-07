@@ -46,8 +46,8 @@ export interface SearchField {
 }
 
 export interface FormModalOptions {
-  name: string
-  resetForm: (defaultParams?: Record<string, any>) => Record<string, any>
+  name?: string
+  // resetForm: (defaultParams?: Record<string, any>) => Record<string, any>
   beforeOpen?: () => void
   formatInParams?: (params: any) => any
   formatOutParams?: (params: any) => any
@@ -59,7 +59,7 @@ export interface FormModalOptions {
   }
 }
 
-export type ActionType = 'add' | 'edit' | 'copy' | 'view' | string
+export type ActionType = 'add' | 'edit' | 'view'
 
 export type PagingQueryApiType<T> = (
   param: PagingQueryParams

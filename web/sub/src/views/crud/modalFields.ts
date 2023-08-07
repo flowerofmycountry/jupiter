@@ -1,30 +1,8 @@
-<template>
-  <div class="sub-page-container">
-    <page-header></page-header>
-    <a-card>
-      <f-form :options="options" auto-label-width>
-        <template #actions="{ form, model }">
-          <a-space>
-            <a-button type="primary" @click="onSubmit(form!, model)">
-              提交
-            </a-button>
-            <a-button @click="onReset(form!)">重置</a-button>
-          </a-space>
-        </template>
-      </f-form>
-    </a-card>
-  </div>
-</template>
-
-<script setup lang="ts">
-import type { FormInstance } from '@arco-design/web-vue'
-import { Form as FForm } from 'jupiter-uii'
-import type { FormOption } from 'jupiter-uii'
-import PageHeader from '@/components/page-header/index.vue'
+import { FormOption } from 'jupiter-uii'
 
 const options: FormOption[] = [
   {
-    field: 'username',
+    field: 'name',
     label: '姓名',
     type: 'input',
     value: '',
@@ -42,22 +20,6 @@ const options: FormOption[] = [
     ]
   },
   {
-    field: 'password',
-    label: '密码',
-    type: 'input-password',
-    value: '',
-    validateTrigger: 'blur',
-    attrs: {
-      allowClear: true
-    },
-    rules: [
-      {
-        required: true,
-        message: '必填'
-      }
-    ]
-  },
-  {
     field: 'age',
     label: '年龄',
     type: 'input-number',
@@ -71,16 +33,111 @@ const options: FormOption[] = [
     ]
   },
   {
+    field: 'address',
+    label: '地址',
+    type: 'cascader',
+    attrs: {
+      options: [
+        {
+          value: 'beijing',
+          label: 'Beijing',
+          children: [
+            {
+              value: 'chaoyang',
+              label: 'ChaoYang',
+              children: [
+                {
+                  value: 'datunli',
+                  label: 'Datunli'
+                }
+              ]
+            },
+            {
+              value: 'haidian',
+              label: 'Haidian'
+            },
+            {
+              value: 'dongcheng',
+              label: 'Dongcheng'
+            },
+            {
+              value: 'xicheng',
+              label: 'Xicheng',
+              children: [
+                {
+                  value: 'jinrongjie',
+                  label: 'Jinrongjie'
+                },
+                {
+                  value: 'tianqiao',
+                  label: 'Tianqiao'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          value: 'shanghai',
+          label: 'Shanghai',
+          children: [
+            {
+              value: 'huangpu',
+              label: 'Huangpu'
+            }
+          ]
+        }
+      ]
+    },
+    rules: [
+      {
+        required: true,
+        message: '请输选择地址'
+      }
+    ]
+  },
+  {
+    field: 'email',
+    label: '邮箱',
+    type: 'select',
+    children: [
+      {
+        type: 'option',
+        attrs: {
+          value: 'qq',
+          label: 'QQ'
+        }
+      },
+      {
+        type: 'option',
+        attrs: {
+          value: '163',
+          label: '网易'
+        }
+      }
+    ],
+    rules: [
+      {
+        required: true,
+        message: '请输选择邮箱'
+      }
+    ]
+  },
+  {
+    field: 'password',
+    label: '密码',
+    type: 'input-password',
+    value: '',
+    validateTrigger: 'blur',
+    attrs: {
+      allowClear: true
+    }
+  },
+  {
     field: 'job1',
     label: '职位',
     type: 'select',
     value: 1,
-    rules: [
-      {
-        required: true,
-        message: '请选择职位'
-      }
-    ],
+
     attrs: {
       style: {
         width: '300px'
@@ -187,17 +244,4 @@ const options: FormOption[] = [
   }
 ]
 
-const onSubmit = async (form: FormInstance, formModel: any) => {
-  const errors = await form.validate()
-
-  if (!errors) {
-    console.log(formModel)
-  }
-}
-
-const onReset = (form: FormInstance) => {
-  form.resetFields()
-}
-</script>
-
-<style scoped></style>
+export default options

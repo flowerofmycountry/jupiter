@@ -3,10 +3,18 @@
     <page-header />
     <a-card class="general-card">
       <f-search-form
+        ref="searchFormRef"
         :options="fields"
-        :cols="3"
-        @search="search"
-        @reset="reset"
+        :cols="{
+          xs: 1,
+          sm: 2,
+          md: 2,
+          lg: 3,
+          xl: 3,
+          xxl: 4
+        }"
+        @search="handleSearch"
+        @reset="handleReset"
       ></f-search-form>
       <a-divider></a-divider>
       <f-table-feature-bar @add="add"></f-table-feature-bar>
@@ -29,65 +37,56 @@
         </template>
       </a-table>
     </a-card>
-    <form-modal ref="modalRef" :fetch-data="fetchData"></form-modal>
+    <f-modal-form
+      ref="formModalRef"
+      v-model:visible="visible"
+      :options="modalFields"
+      width="80%"
+      :body-style="{ height: '500px' }"
+      :title="formModalTitle"
+      @before-ok="handleBeforeOk"
+      @cancel="handleCancel"
+    ></f-modal-form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import {
   TableFeatureBar as FTableFeatureBar,
-  SearchForm as FSearchForm
+  SearchForm as FSearchForm,
+  ModalForm as FModalForm
 } from 'jupiter-uii'
-import { useTable } from 'jupiter-hoooks'
+import { useCRUD } from 'jupiter-hoooks'
 import PageHeader from '@/components/page-header/index.vue'
 import type { Crud } from '@/api/crud'
-import { list, del } from '@/api/crud'
-import FormModal from './form-modal.vue'
+import { list, del, create, update, get } from '@/api/crud'
 import columns from './columns'
 import fields from './searchFields'
-
-const modalRef = ref<InstanceType<typeof FormModal>>()
+import modalFields from './modalFields'
 
 const {
+  pagination,
   renderData,
   loading,
-  pagination,
+  fetchData,
   handlePageChange,
   handlePageSizeChange,
-  fetchData
-} = useTable<Crud>(list)
-
-const search = (params: Record<string, any>) => {
-  fetchData({
-    current: 1,
-    ...params
-  })
-}
-
-const reset = () => {
-  fetchData({
-    current: 1
-  })
-}
-
-const add = () => {
-  modalRef.value?.add()
-}
-
-const edit = (record: Crud) => {
-  modalRef.value?.edit(record)
-}
-
-const view = (record: Crud) => {
-  modalRef.value?.view(record)
-}
-
-const remove = (record: Crud) => {
-  del(record.id).then(() => {
-    fetchData()
-  })
-}
+  setPagination,
+  searchFormRef,
+  handleSearch,
+  handleReset,
+  visible,
+  mode,
+  readonly,
+  formModalRef,
+  formModalTitle,
+  add,
+  edit,
+  view,
+  remove,
+  handleBeforeOk,
+  handleCancel
+} = useCRUD<Crud>(list, create, del, update, get, '用户')
 </script>
 
 <style scoped lang="less"></style>

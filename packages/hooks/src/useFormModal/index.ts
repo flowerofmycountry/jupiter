@@ -1,13 +1,19 @@
-import { Form, Message } from '@arco-design/web-vue'
+import { Message } from '@arco-design/web-vue'
 import { computed, Ref, ref } from 'vue'
 import { FormModalOptions, ActionType } from '../types'
+
+const TitleMap = {
+  add: '新增',
+  edit: '编辑',
+  view: '查看'
+}
 
 export default function useFormModal(options: FormModalOptions) {
   const visible = ref(false)
   const mode: Ref<ActionType> = ref('add')
   const readonly = ref(false)
-  const form = ref(options.resetForm())
-  const formRef = ref<InstanceType<typeof Form> | null>(null)
+  // const form = ref(options.resetForm())
+  const formModalRef = ref<any>()
 
   // 出入参转换
   options.formatInParams = options.formatInParams || (row => row)
@@ -17,25 +23,32 @@ export default function useFormModal(options: FormModalOptions) {
   const fillBackForm = (row: Record<string, any>) => {
     if (options.$api.detail) {
       options.$api.detail(row.id).then((res: any) => {
-        form.value = options.formatOutParams!({
-          ...row,
-          ...res.data
-        })
+        formModalRef.value?.setFormData(
+          options.formatOutParams!({
+            ...row,
+            ...res.data
+          })
+        )
+        // form.value = options.formatOutParams!({
+        //   ...row,
+        //   ...res.data
+        // })
       })
     } else {
-      form.value = options.formatOutParams!(row)
+      formModalRef.value?.setFormData(options.formatOutParams!(row))
+      // form.value = options.formatOutParams!(row)
     }
   }
 
-  const formTitle = computed(() => {
-    return mode.value
+  const formModalTitle = computed(() => {
+    return (options.name ?? '') + TitleMap[mode.value]
   })
 
   const setVisible = (show: boolean) => {
     visible.value = show
     if (visible.value) {
       options.beforeOpen && options.beforeOpen()
-      formRef.value?.clearValidate()
+      formModalRef.value?.clearValidate()
     }
   }
 
@@ -45,14 +58,9 @@ export default function useFormModal(options: FormModalOptions) {
     readonly.value = false
   }
 
-  const add = (row?: Record<string, any>) => {
+  const add = () => {
     editWithMode('add')
-    form.value = options.resetForm(row)
-  }
-
-  const copy = (row: Record<string, any>) => {
-    editWithMode('copy')
-    fillBackForm(row)
+    formModalRef.value?.resetFields()
   }
 
   const edit = (row: Record<string, any>) => {
@@ -70,26 +78,26 @@ export default function useFormModal(options: FormModalOptions) {
     visible,
     mode,
     readonly,
-    form,
-    formRef,
-    formTitle,
+    formModalRef,
+    formModalTitle,
     add,
-    copy,
     edit,
     view,
     handleBeforeOk(done: any) {
-      formRef.value?.validate((errors: any) => {
+      formModalRef.value?.validate((errors: any) => {
         if (errors) {
           done(false)
         } else {
-          const action = ['add', 'copy'].includes(mode.value)
-            ? options.$api.insert
-            : ['edit', 'update'].includes(mode.value)
+          const updateAction = ['edit', 'update'].includes(mode.value)
             ? options.$api.update
             : null
 
+          const action = ['add', 'insert'].includes(mode.value)
+            ? options.$api.insert
+            : updateAction
+
           action &&
-            action(options.formatInParams!(form.value))
+            action(options.formatInParams!(formModalRef.value?.getFormData()))
               .then(() => {
                 done()
                 Message.success('操作成功')

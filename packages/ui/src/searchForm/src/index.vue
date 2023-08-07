@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { kebabToUpperCamelCase } from 'jupiter-shared'
 import {
   Input,
@@ -83,7 +83,7 @@ import {
   MonthPicker,
   RangePicker
 } from '@arco-design/web-vue'
-import type { FormInstance } from '@arco-design/web-vue'
+import type { FormInstance, ResponsiveValue } from '@arco-design/web-vue'
 import { cloneDeep } from 'lodash-es'
 import { SearchFormOption } from './typings'
 
@@ -106,16 +106,25 @@ const componentsMap: Record<string, any> = {
 const form = ref<any>(null)
 const formRef = ref<FormInstance>()
 
-const props = defineProps({
-  options: {
-    type: Array as PropType<SearchFormOption[]>,
-    required: true
-  },
-  cols: {
-    type: Number,
-    default: 3
+const props = withDefaults(
+  defineProps<{
+    options: SearchFormOption[]
+    cols?: ResponsiveValue | number
+  }>(),
+  {
+    //  对象的话要写成函数形式
+    cols: () => {
+      return {
+        xs: 1,
+        sm: 2,
+        md: 2,
+        lg: 3,
+        xl: 3,
+        xxl: 4
+      }
+    }
   }
-})
+)
 
 const collapsed = ref(false)
 

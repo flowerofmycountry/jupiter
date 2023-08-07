@@ -8,6 +8,7 @@ import TableFeatureBar from './tableFeatureBar'
 import Form from './form'
 import SearchForm from './searchForm'
 import IconFont from './icon'
+import ModalForm from './modalForm'
 
 const components: Record<string, Plugin> = {
   ChooseIcon,
@@ -17,7 +18,8 @@ const components: Record<string, Plugin> = {
   TableFeatureBar,
   Form,
   SearchForm,
-  IconFont
+  IconFont,
+  ModalForm
 }
 
 const install = (app: App) => {

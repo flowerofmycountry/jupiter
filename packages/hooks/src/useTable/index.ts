@@ -1,10 +1,10 @@
+import { reactive, ref, Ref } from 'vue'
 import {
   FetchDataApiType,
   PagingQueryApiType,
   PagingQueryParams,
   PagingQueryResult
 } from '../types'
-import { reactive, ref, Ref } from 'vue'
 import useLoading from '../useLoading'
 
 export default <T = any>(pagingQuery: PagingQueryApiType<T>) => {

@@ -1,41 +1,24 @@
 import { ref } from 'vue'
-import { FetchDataApiType, SearchField } from '../types'
+import { FetchDataApiType } from '../types'
 
-export default (searchFields: SearchField[], fetchData: FetchDataApiType) => {
-  const resetForm = () => {
-    const keys = searchFields.map((field: SearchField) => field.key)
-    const result: Record<string, any> = {}
-    keys.forEach(key => {
-      result[key] = ''
-    })
-    result.orders = [
-      {
-        asc: false,
-        column: 'id'
-      }
-    ]
-    return result
-  }
+export default (fetchData: FetchDataApiType) => {
+  const searchFormRef = ref<any>()
 
-  const searchForm = ref(resetForm())
-
-  const handleSearch = () => {
+  const handleSearch = (formData: any) => {
     fetchData({
       current: 1,
-      ...searchForm.value
+      ...formData
     })
   }
 
   const handleReset = () => {
-    searchForm.value = resetForm()
-
     fetchData({
       current: 1
     })
   }
 
   return {
-    searchForm,
+    searchFormRef,
     handleReset,
     handleSearch
   }

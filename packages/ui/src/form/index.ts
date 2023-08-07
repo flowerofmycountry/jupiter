@@ -9,6 +9,6 @@ const Form = Object.assign(_Form, {
 })
 
 export type FormInstance = InstanceType<typeof _Form>
-export type { FormOptions } from './src/types'
+export type { FormOption } from './src/typings'
 
 export default Form

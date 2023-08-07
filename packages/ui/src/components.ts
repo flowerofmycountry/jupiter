@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
     FSearchForm: typeof import('../index')['SearchForm']
     FIconFont: typeof import('../index')['IconFont']
     FForm: typeof import('../index')['Form']
+    FModalForm: typeof import('../index')['ModalForm']
   }
 }
 

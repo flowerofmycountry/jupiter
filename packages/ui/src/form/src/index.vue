@@ -1,5 +1,5 @@
 <template>
-  <a-form v-if="form" ref="formRef" :model="form" v-bind="$attrs">
+  <a-form v-if="form" ref="formRef" :model="form">
     <template v-for="(item, _index) in options" :key="_index">
       <a-form-item
         :label="item.label"
@@ -28,15 +28,11 @@
         <template v-else>
           <component
             :is="componentsMap[kebabToUpperCamelCase(item.type)]"
-            v-if="!item.children || item.children.length === 0"
-            v-model="form[item.field!]"
-            v-model:file-list="form[item.field!]"
-            v-bind="item.attrs"
-            :style="item.attrs?.cssProperties"
-          ></component>
-          <component
-            :is="componentsMap[kebabToUpperCamelCase(item.type)]"
-            v-else
+            v-if="
+              item.type === 'select' ||
+              item.type === 'checkbox-group' ||
+              item.type === 'radio-group'
+            "
             v-model="form[item.field!]"
             v-bind="item.attrs"
           >
@@ -46,11 +42,20 @@
               :key="i"
               v-bind="child.attrs"
             >
-              <template v-if="['checkbox', 'radio'].includes(child.type)">
+              <template
+                v-if="child.type === 'radio' || child.type === 'checkbox'"
+              >
                 {{ child.attrs!.label }}
               </template>
             </component>
           </component>
+          <component
+            :is="componentsMap[kebabToUpperCamelCase(item.type)]"
+            v-else
+            v-model="form[item.field!]"
+            v-model:file-list="form[item.field!]"
+            v-bind="item.attrs"
+          ></component>
         </template>
       </a-form-item>
     </template>
@@ -67,7 +72,8 @@ import {
   onMounted,
   watch,
   shallowRef,
-  onBeforeUnmount
+  onBeforeUnmount,
+  toRaw
 } from 'vue'
 import { kebabToUpperCamelCase } from 'jupiter-shared'
 import {
@@ -90,7 +96,7 @@ import type { IDomEditor } from '@wangeditor/editor'
 // import E from 'wangeditor'
 import type { FormInstance } from '@arco-design/web-vue'
 import { cloneDeep } from 'lodash-es'
-import { FormOptions } from './types'
+import { FormOption } from './typings'
 import '@wangeditor/editor/dist/css/style.css'
 
 const componentsMap: Record<string, any> = {
@@ -114,7 +120,7 @@ const formRef = ref<FormInstance>()
 
 const props = defineProps({
   options: {
-    type: Array as PropType<FormOptions[]>,
+    type: Array as PropType<FormOption[]>,
     required: true
   }
 })
@@ -157,6 +163,24 @@ watch(
     deep: true
   }
 )
+
+defineExpose({
+  getFormData: () => {
+    return toRaw(form.value)
+  },
+  setFormData: (data: Record<string, any>) => {
+    form.value = data
+  },
+  clearValidate: () => {
+    formRef.value?.clearValidate()
+  },
+  resetFields: () => {
+    formRef.value?.resetFields()
+  },
+  validate: (cb: (err: any) => void) => {
+    return formRef.value?.validate(cb)
+  }
+})
 </script>
 
 <style scoped></style>
